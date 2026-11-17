@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حلول منصة كوريو – KHALED ASHRAF</title>
+<title>حلول منصة كيرو – K5LED</title>
 <style>
 :root{
   --bg:#0f1220; --bg-2:#151a2e; --card:#1b2138; --card-2:#232b48;
@@ -136,8 +136,31 @@ footer .contact span { color: var(--accent); direction: ltr; display: inline-blo
 
 .top-btn { position: fixed; bottom: 24px; left: 24px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b0f1c; border: none; width: 48px; height: 48px; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 8px 24px rgba(0, 212, 255, 0.35); display: none; z-index: 99; transition: .3s; }
 .top-btn.show { display: block; }
+body::before {
+    content: "K5LED"; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 12vw; font-weight: 900;
+    color: rgba(255, 255, 255, 0.03); 
+    pointer-events: none; z-index: 0; white-space: nowrap;
+    letter-spacing: 15px; user-select: none;
+}
+.logo-container { margin-bottom: 20px; text-align: center; }
+.logo-container img { max-width: 120px; height: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2); }
 </style>
 </head>
+<script>
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const codeText = btn.closest('.qa-item').querySelector('pre').innerText;
+      navigator.clipboard.writeText(codeText).then(() => {
+        btn.textContent = '✓ تم النسخ';
+        btn.classList.add('done');
+        setTimeout(() => { btn.textContent = 'نسخ'; btn.classList.remove('done'); }, 1500);
+      });
+    });
+  });
+</script>
 <body>
 
 <!-- ================= شاشة القفل ================= -->
@@ -149,22 +172,25 @@ footer .contact span { color: var(--accent); direction: ltr; display: inline-blo
 </div>
 
 <header class="hero">
-  <div class="badge">🚀 تجميعة كاملة – KHALED ASHRAF</div>
+<div class="logo-container">
+  <img src="logo.png" alt="K5LED Logo">
+</div>
+  <div class="badge">🚀 تجميعة كاملة – K5LED ASHRAF</div>
   <h1>حلول منصة كوريو – الصف الأول الثانوي</h1>
   <p>إجابات جاهزة للنسخ – مادة البرمجة والذكاء الاصطناعي – 12 مستوى كامل</p>
 
   <div class="owner-card">
     <div class="avatar">KA</div>
     <div class="info">
-      <b>KHALED ASHRAF</b>
+      <b>K5LED ASHRAF</b>
       <span>📞 01286473176</span>
     </div>
   </div>
 
   <div class="stats">
-    <div class="stat"><b>12</b><span>مستوى منشور</span></div>
+    <div class="stat"><b>20</b><span>مستوى منشور</span></div>
     <div class="stat"><b>42</b><span>إجمالي المستويات</span></div>
-    <div class="stat"><b>100%</b><span>إجابات كاملة</span></div>
+    <div class="stat"><b>60%</b><span>إجابات كاملة</span></div>
   </div>
 </header>
 
@@ -1330,9 +1356,615 @@ console.log(calc(10));</pre>
 
 </div>
 
+  <!-- ================= LEVEL 13 ================= -->
+  <div class="level" data-level="13">
+    <div class="level-head"><h2><span class="num">13</span> المستوى الثالث عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>10</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.max(5,50));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.min(5,50));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>function sum(num1, num2) {
+  let result = num1 + num2;
+  return result;
+}
+console.log(sum(10, 20));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.round(10.5));
+console.log(Math.floor(10.5));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.floor(7.8));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.random());</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>if (Math.random() >= 0.5) { 
+  console.log("Lucky today");
+} else { 
+  console.log("Unlucky today");
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.random());</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.random() * 10);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.floor(Math.random() * 10));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.random());</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.floor(10.5));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>7</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.round(5.5))
+console.log(Math.floor(8.8))</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>if ( Math.random() >= 0.5) {
+  console.log("Excellent luck");
+} else {
+  console.log("Bad luck");
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.floor(Math.random() * 10 ));</pre></div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 14 ================= -->
+  <div class="level" data-level="14">
+    <div class="level-head"><h2><span class="num">14</span> المستوى الرابع عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.round(5.7));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.round(5.5));
+console.log(Math.floor(5.5));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.max(10,20));
+console.log(Math.min(10,20));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.random());</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>function split4(total) {
+  let result = total / 4;
+  return result;
+}
+console.log(split4(1200));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>Math.round(1.8)</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>100</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.random());</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>12</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Math.floor(Math.random() * 10 ));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>function sum(num) {
+  processing
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>return result
+
+الكود كامل:
+function calc(num) {
+  let result = num * 7;
+  return result
+}
+console.log(calc(10));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>calc(7)
+
+الكود كامل:
+function calc(num) {
+  let result = num * 5;
+  return result;
+}
+console.log(calc(7));</pre></div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 15 ================= -->
+  <div class="level" data-level="15">
+    <div class="level-head"><h2><span class="num">15</span> المستوى الخامس عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let fee = 1000;
+
+الكود كامل:
+let fee = 1000;
+if (fee == 1000) {
+  console.log("50 codycoins off");
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let fee = "1000 codycoins";
+
+الكود كامل:
+let fee = "1000 codycoins";
+if (fee == "1000 codycoins") {
+  console.log("50 codycoins off");
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>سلسلة نصية</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>القيمة العددية</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>سلسلة نصية</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof 500);
+console.log(typeof "500 codycoins");</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof "100");</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(1 === 1);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>true</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>false</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>true</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>false</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Number("10"));
+console.log(String(500));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>String</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof "1");</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>false</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>NaN</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof"7")</pre></div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 16 ================= -->
+  <div class="level" data-level="16">
+    <div class="level-head"><h2><span class="num">16</span> المستوى السادس عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let tempList = [36, 36, 26, 27, 28, 33, 36];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(tempList[2]);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36];
+console.log(tempList[2]);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(tempList[5]);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36];
+console.log(tempList[5]);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(tempList);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36];
+console.log(tempList);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let tempList = [36, 36, 26, 27, 28, 33, 36];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let total = 0;
+for(let i = 0; i < 7; i++){
+total = total + tempList[i];
+}
+console.log(total);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36];
+let total = 0;
+for(let i = 0; i < 7; i++){
+total = total + tempList[i];
+}
+console.log(total);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(total / 7);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36];
+let total = 0;
+for(let i = 0; i < 7; i++){
+total = total + tempList[i];
+}
+console.log(total / 7);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let runLogs = [5, 2, 4, 1, 3, 3];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + runLogs[i];
+}
+
+الكود كامل:
+let runLogs = [5, 2, 4, 1, 3, 3];
+let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + runLogs[i];
+}
+console.log(total);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(total / 6);
+
+الكود كامل:
+let runLogs = [5, 2, 4, 1, 3, 3];
+let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + runLogs[i];
+}
+console.log(total / 6);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + steps[i];
+}
+console.log(total / 6);
+
+الكود كامل:
+let steps = [16000, 12000, 14605, 9920, 13805, 14500];
+let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + steps[i];
+}
+console.log(total / 6);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>30, 28, 29
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36, 30, 28, 29];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(tempList.length);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36, 30, 28, 29];
+console.log(tempList.length);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(tempList.length);
+
+الكود كامل:
+let tempList = [36, 36, 26, 27, 28, 33, 36, 30, 28, 29, 26, 30, 31, 28];
+console.log(tempList.length);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let num = [5, 10, 15];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>15</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>num
+
+الكود كامل:
+let num = [5, 10, 15, 20, 25];
+console.log(num);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>6</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>num.length
+
+الكود كامل:
+let num = [5, 10, 15, 20, 25];
+console.log(num.length);</pre></div>
+    </div>
+  </div>
+
+
+  <!-- ================= LEVEL 17 ================= -->
+  <div class="level" data-level="17">
+    <div class="level-head"><h2><span class="num">17</span> المستوى السابع عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof 500);
+console.log(typeof "500codycoins");</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(1 === "1");</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(Number("5"));
+console.log(String(10));</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let tempList = [10, 15, 13, 16, 14, 12, 17];
+console.log(tempList[2]);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let tempList = [5, 8, 7, 10, 6, 9];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + tempList[i];
+}
+console.log(total / 6);
+
+الكود كامل:
+let tempList = [5, 8, 7, 10, 6, 9];
+let total = 0;
+for (let i = 0; i < 6; i++) {
+total = total + tempList[i];
+}
+console.log(total / 6);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>tempList.length
+
+الكود كامل:
+let tempList = [5, 8, 7, 10, 6, 9, 10, 7, 6, 11, 13, 8, 8, 7];
+console.log(tempList.length);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>String</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof "50");</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>false</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>NaN</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>console.log(typeof 100)</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>let num = [10, 50, 100, 150];</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>20</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>num
+
+الكود كامل:
+let num = [2, 4, 6, 8, 10];
+console.log(num);</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>12</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>num.length
+
+الكود كامل:
+let num = [2, 4, 6, 8, 10];
+console.log(num.length);</pre></div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 18 ================= -->
+  <div class="level" data-level="18">
+    <div class="level-head"><h2><span class="num">18</span> المستوى الثامن عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cody's Notepad&lt;/h1&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h3&gt;Cody's Notepad&lt;/h3&gt;
+&lt;h6&gt;Today's shopping list&lt;/h6&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;p&gt;Bread&lt;/p&gt;
+
+الكود كامل:
+&lt;h1&gt;Cody's Notepad&lt;/h1&gt;
+&lt;h2&gt;Today's shopping list&lt;/h2&gt;
+&lt;p&gt;Bread&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;p&gt;Bread&lt;br&gt;
+Ham&lt;br&gt;
+Cheese&lt;/p&gt;
+
+الكود كامل:
+&lt;h1&gt;Cody's Notepad&lt;/h1&gt;
+&lt;h2&gt;Today's shopping list&lt;/h2&gt;
+&lt;p&gt;Bread&lt;br&gt;
+Ham&lt;br&gt;
+Cheese&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Rick's Notebook&lt;/h1&gt;
+&lt;h2&gt;Shopping List&lt;/h2&gt;
+&lt;p&gt;Tomato&lt;br&gt;
+Onion&lt;br&gt;
+Mushroom&lt;br&gt;
+Garlic&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Shopping List&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tomato&lt;/li&gt;
+&lt;li&gt;Onion&lt;/li&gt;
+&lt;li&gt;Mushroom&lt;/li&gt;
+&lt;li&gt;Garlic&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Shopping List&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Tomato&lt;/li&gt;
+&lt;li&gt;Onion&lt;/li&gt;
+&lt;li&gt;Mushroom&lt;/li&gt;
+&lt;li&gt;Garlic&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Tomorrow's Schedule&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Science&lt;/li&gt;
+&lt;li&gt;Math&lt;/li&gt;
+&lt;li&gt;Music&lt;/li&gt;
+&lt;li&gt;History&lt;/li&gt;
+&lt;li&gt;Physical Education&lt;/li&gt;
+&lt;/ol&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Tomorrow's Schedule&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Science&lt;/li&gt;
+&lt;li&gt;Math&lt;/li&gt;
+&lt;li&gt;Music&lt;/li&gt;
+&lt;li&gt;History&lt;/li&gt;
+&lt;li&gt;Physical Education&lt;/li&gt;
+&lt;/ol&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;li&gt;Curry rice&lt;img&gt;&lt;/li&gt;
+
+الكود كامل:
+&lt;h1&gt;Cooking Wishlist&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Curry rice&lt;img&gt;&lt;/li&gt;
+&lt;li&gt;Japanese rice omelette&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cooking Wishlist&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Curry rice&lt;img src="curry.png"&gt;&lt;/li&gt;
+&lt;li&gt;Japanese rice omelette&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cooking Wishlist&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Curry rice&lt;br&gt;&lt;img src="curry.png"&gt;&lt;/li&gt;
+&lt;li&gt;Japanese rice omelette&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cooking Wishlist&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Curry rice&lt;br&gt;&lt;img src="curry.png"&gt;&lt;/li&gt;
+&lt;li&gt;Japanese rice omelette&lt;br&gt;&lt;img src="omelette.png"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cooking Wishlist&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Curry rice&lt;br&gt;&lt;img src="curry.png"&gt;&lt;/li&gt;
+&lt;li&gt;Japanese rice omelette&lt;br&gt;&lt;img src="omelette.png"&gt;&lt;/li&gt;
+&lt;li&gt;Pasta&lt;br&gt;&lt;img src="pasta.png"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>alt="Rice with spicy sauce"
+alt="Japanese rice omelette with ketchup"
+
+الكود كامل:
+&lt;h1&gt;Cooking Wishlist&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Curry rice&lt;br&gt;&lt;img src="miss.png" alt="Rice with spicy sauce"&gt;&lt;/li&gt;
+&lt;li&gt;Japanese rice omelette&lt;br&gt;&lt;img src="miss.png" alt="Japanese rice omelette with ketchup"&gt;&lt;/li&gt;
+&lt;li&gt;Pasta&lt;br&gt;&lt;img src="pasta.png" alt="Tomato sauce pasta"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Drink Menu&lt;/h1&gt;
+&lt;p&gt;Orange juice: 200 codycoins&lt;br&gt;
+Apple juice: 150 codycoins&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;!-- Prices will be revised next week. --&gt;
+&lt;h1&gt;Drink Menu&lt;/h1&gt;
+&lt;p&gt;Orange juice: 200 codycoins&lt;br&gt;
+Apple juice: 150 codycoins&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>لقد كانت ممتعة!</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Hello&lt;/h1&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;p&gt;Hello&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>br tag</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>ul tag</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>1.Cut ingredients
+2.Stir-fry
+3.Add seasonings</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;img src="image.png"&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;img alt="This is an image."&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;!--The h1 tag is a heading.--&gt;
+&lt;h1&gt;Hello&lt;/h1&gt;</pre></div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 19 ================= -->
+  <div class="level" data-level="19">
+    <div class="level-head"><h2><span class="num">19</span> المستوى التاسع عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{
+  color: red;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{
+  color: blue;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{
+  color: blue;
+}
+p{
+  color: red;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{
+  color: blue;
+  background-color: yellow;
+}
+p{
+  color: red;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{
+  color: red;
+  background-color: yellow;
+}
+p{
+  color: blue;
+  background-color: orange;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>p {
+  font-weight: bold;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>p {
+  font-weight: normal;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>900
+
+الكود كامل:
+p {
+  font-weight: 900;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>p {
+  font-size : 10px;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>p {
+  font-size : 50px;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تشغيل الكود</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>p{
+  color: blue;
+}
+p{
+  color: green;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;p class="sea"&gt;Let's go to the sea.&lt;/p&gt;
+&lt;p class="mountains"&gt;Let's go to the mountains.&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>.sea{
+  color: blue;
+}
+.mountains{
+  color: green;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;p class="apple"&gt;Apple&lt;/p&gt;
+&lt;p class="watermelon"&gt;Watermelon&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>.apple{
+  color:red;
+}
+.watermelon{
+  color:green;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>/* Change the color of the text of the h1 tag to red. */
+h1{
+  color: red;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;!-- Let's give a class name --&gt;
+&lt;p class="apple"&gt;Apple&lt;/p&gt;
+&lt;p class="watermelon"&gt;Watermelon&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{
+  color: red;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1 {
+  color:blue;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تغيير لون النص</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تغيير لون الخلفية</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>يصبح النص عريضًا</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>font-size: 10px;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>.dog{
+  color: blue;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>/* Change the text color to navy. */
+p {
+  color: navy;
+}</pre></div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 20 ================= -->
+  <div class="level" data-level="20">
+    <div class="level-head"><h2><span class="num">20</span> المستوى العشرين</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Travel Itinerary&lt;/h1&gt;
+&lt;h2&gt;Packing List&lt;/h2&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Travel Itinerary&lt;/h1&gt;
+&lt;h2&gt;Packing List&lt;/h2&gt;
+&lt;p&gt;Wallet&lt;br&gt;
+Hat&lt;br&gt;
+Handkerchief&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Travel Itinerary&lt;/h1&gt;
+&lt;h2&gt;Packing List&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Wallet&lt;/li&gt;
+&lt;li&gt;Hat&lt;/li&gt;
+&lt;li&gt;Handkerchief&lt;/li&gt;
+&lt;/ul&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;How to Make Tomato Soup&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Boil water&lt;/li&gt;
+&lt;li&gt;Add ingredients&lt;/li&gt;
+&lt;li&gt;Adjust the seasoning&lt;/li&gt;
+&lt;/ol&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cody's Page&lt;/h1&gt;
+&lt;p&gt;My name is Cody.&lt;/p&gt;
+&lt;img src="cody.png"&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Cody's Page&lt;/h1&gt;
+&lt;p&gt;My name is Cody.&lt;/p&gt;
+&lt;img src="miss.png" alt="Cody's striking pose"&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1{ color: red; }</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1 {
+color: red;
+background-color: yellow;
+}
+p {
+font-weight: bold;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;h1&gt;Greetings of the World&lt;/h1&gt;
+&lt;p class="japanese"&gt;Konnichiwa&lt;/p&gt;
+&lt;p class="english"&gt;Hello&lt;/p&gt;
+&lt;p class="french"&gt;Bonjour&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>.japanese{
+color: lime;
+}
+.english{
+color: purple;
+}
+.french{
+color: navy;
+}
+
+الكود كامل:
+h1 {
+color: red;
+background-color: yellow;
+}
+p {
+font-weight: bold;
+}
+.japanese{
+color: lime;
+}
+.english{
+color: purple;
+}
+.french{
+color: navy;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;p&gt;Good morning&lt;/p&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>br tag</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>&lt;img src="image.png"&gt;</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>strawberry・
+cherry・
+orange・</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h1 {
+color:yellow
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>تغيير لون الخلفية</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>يصبح الخط عريضًا</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>h3{
+color: red;
+}</pre></div>
+      <div class="qa-item"><div class="qa-header"><button class="copy-btn">نسخ</button></div><pre>.fish{
+color: blue;
+}</pre></div>
+    </div>
+  </div>
+  
 <footer>
   <p>💙 <b>حلول منصة كوريو</b> – الصف الأول الثانوي | مادة البرمجة والذكاء الاصطناعي</p>
-  <p style="margin-top:8px">تجميع وترتيب: <b>KHALED ASHRAF</b> | جميع الحقوق محفوظة © 2026</p>
+  <p style="margin-top:8px">تجميع وترتيب: <b>K5LED ASHRAF</b> | جميع الحقوق محفوظة © 2026</p>
   <div class="contact">📞 للتواصل: <span>01286473176</span></div>
   <p style="margin-top:14px;font-size:13px;color:var(--gold)">🌿 صلّ على النبي محمد ﷺ</p>
   <p style="margin-top:8px;font-size:12px;opacity:.7">هذا المحتوى غير رسمي – راجع إجاباتك دائمًا قبل الاعتماد عليها.</p>
@@ -1342,7 +1974,7 @@ console.log(calc(10));</pre>
 
 <script>
   // ================= نظام الحماية بكلمة السر =================
-  const SECRET_PASSWORD = "KHALED 2027"; 
+  const SECRET_PASSWORD = "K5LED 2027"; 
 
   if(localStorage.getItem('koreo_access') === 'true') {
     document.getElementById('login-overlay').style.display = 'none';
