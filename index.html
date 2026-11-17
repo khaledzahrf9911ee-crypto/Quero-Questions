@@ -140,6 +140,14 @@ footer .contact span { color: var(--accent); direction: ltr; display: inline-blo
 </head>
 <body>
 
+<!-- ================= شاشة القفل ================= -->
+<div id="login-overlay" style="position:fixed;inset:0;background:#0f1220;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;font-family:Tahoma, sans-serif;">
+  <h2 style="color:#00d4ff;margin-bottom:20px;font-size:24px;text-align:center;padding:0 20px;">🔒 الموقع محمي<br><span style="font-size:16px;color:#9aa3c0;margin-top:10px;display:block;">أدخل كلمة المرور للمتابعة</span></h2>
+  <input type="password" id="password-input" placeholder="كلمة السر" style="padding:12px 20px;border-radius:8px;border:1px solid #00d4ff;background:#1b2138;color:#fff;font-size:16px;margin-bottom:15px;text-align:center;outline:none;width:250px;direction:ltr;">
+  <button onclick="checkPassword()" style="padding:10px 40px;background:#00d4ff;color:#000;border:none;border-radius:8px;font-weight:bold;cursor:pointer;font-size:16px;transition:.2s;">دخول</button>
+  <p id="error-msg" style="color:#ff4d4d;margin-top:15px;display:none;font-size:14px;">كلمة السر غلط، جرب تاني!</p>
+</div>
+
 <header class="hero">
   <div class="badge">🚀 تجميعة كاملة – KHALED ASHRAF</div>
   <h1>حلول منصة كوريو – الصف الأول الثانوي</h1>
@@ -1333,38 +1341,62 @@ console.log(calc(10));</pre>
 <button class="top-btn" id="topBtn">↑</button>
 
 <script>
-// فتح وقفل المستويات
-document.querySelectorAll('.level-head').forEach(h=>{
-  h.addEventListener('click',()=>{h.parentElement.classList.toggle('open');});
-});
+  // ================= نظام الحماية بكلمة السر =================
+  const SECRET_PASSWORD = "KHALED 2027"; 
 
-// كود زر النسخ الجديد
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation(); // عشان ميقلبش المستوى لوحده
-    // بيجيب الكود اللي في نفس الكارت
-    const codeText = btn.closest('.qa-item').querySelector('pre').innerText;
-    
-    navigator.clipboard.writeText(codeText).then(() => {
-      btn.textContent = '✓ تم النسخ';
-      btn.classList.add('done');
-      setTimeout(() => {
-        btn.textContent = 'نسخ';
-        btn.classList.remove('done');
-      }, 1500);
+  if(localStorage.getItem('koreo_access') === 'true') {
+    document.getElementById('login-overlay').style.display = 'none';
+  }
+
+  function checkPassword() {
+    const input = document.getElementById('password-input').value;
+    if(input === SECRET_PASSWORD) {
+      localStorage.setItem('koreo_access', 'true'); 
+      document.getElementById('login-overlay').style.display = 'none';
+    } else {
+      document.getElementById('error-msg').style.display = 'block';
+    }
+  }
+  
+  // السماح بالدخول عند الضغط على Enter
+  document.getElementById('password-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      checkPassword();
+    }
+  });
+  // ==========================================================
+
+  // فتح وقفل المستويات
+  document.querySelectorAll('.level-head').forEach(h=>{
+    h.addEventListener('click',()=>{h.parentElement.classList.toggle('open');});
+  });
+
+  // كود زر النسخ
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const codeText = btn.closest('.qa-item').querySelector('pre').innerText;
+      
+      navigator.clipboard.writeText(codeText).then(() => {
+        btn.textContent = '✓ تم النسخ';
+        btn.classList.add('done');
+        setTimeout(() => {
+          btn.textContent = 'نسخ';
+          btn.classList.remove('done');
+        }, 1500);
+      });
     });
   });
-});
 
-// زر الرجوع لفوق
-const topBtn = document.getElementById('topBtn');
-window.addEventListener('scroll', () => {
-  topBtn.classList.toggle('show', window.scrollY > 400);
-});
-topBtn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+  // زر الرجوع لفوق
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('show', window.scrollY > 400);
+  });
+  topBtn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
 
-// فتح المستوى الأول تلقائياً
-document.querySelector('.level[data-level="1"]').classList.add('open');
+  // فتح المستوى الأول تلقائياً
+  document.querySelector('.level[data-level="1"]').classList.add('open');
 </script>
 
 </body>
