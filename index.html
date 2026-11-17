@@ -1,1 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حلول منصة كوريو – KHALED ASHRAF</title>
+<style>
+:root{
+  --bg:#0f1220; --bg-2:#151a2e; --card:#1b2138; --card-2:#232b48;
+  --accent:#00d4ff; --accent-2:#7c5cff; --green:#22c55e; --gold:#ffd97a;
+  --text:#e6e9f5; --muted:#9aa3c0; --border:rgba(255,255,255,0.08); --code:#0b0f1c;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Arial,sans-serif}
+body{
+  background:
+    radial-gradient(1200px 600px at 90% -10%, rgba(124,92,255,.25), transparent 60%),
+    radial-gradient(1000px 500px at -10% 10%, rgba(0,212,255,.18), transparent 60%),
+    var(--bg);
+  color:var(--text); min-height:100vh; line-height:1.8;
+}
+header.hero{padding:60px 20px 40px;text-align:center;position:relative;overflow:hidden;}
+header.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,92,255,.15),rgba(0,212,255,.1));z-index:-1;}
+.badge{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0b0f1c;font-weight:700;padding:6px 16px;border-radius:999px;font-size:13px;margin-bottom:18px;letter-spacing:.3px;}
+h1{font-size:clamp(24px,4vw,40px);background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px;}
+.hero p{color:var(--muted);max-width:640px;margin:0 auto 18px;font-size:15px;}
 
+/* كارت صاحب الموقع */
+.owner-card{
+  display:inline-flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(124,92,255,.15));
+  border:1px solid rgba(0,212,255,.35);
+  border-radius:16px;padding:12px 24px;margin-top:16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.owner-card .avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#0b0f1c;font-weight:800;display:grid;place-items:center;font-size:18px;
+}
+.owner-card .info{text-align:right;}
+.owner-card .info b{display:block;font-size:16px;color:#fff;}
+.owner-card .info span{font-size:13px;color:var(--accent);direction:ltr;display:inline-block;}
+
+.stats{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:24px;}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:12px 22px;min-width:120px;}
+.stat b{display:block;font-size:22px;color:var(--accent);}
+.stat span{font-size:12px;color:var(--muted);}
+
+.container{max-width:900px;margin:0 auto;padding:20px 16px 80px;}
+.notice{background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.35);color:var(--gold);border-radius:14px;padding:14px 18px;font-size:14px;margin:20px 0 30px;text-align:center;}
+
+/* العبارات الدينية */
+.reminder{
+  text-align:center; font-size:14px; color:var(--gold);
+  background:linear-gradient(90deg,rgba(255,217,122,.05),rgba(255,217,122,.12),rgba(255,217,122,.05));
+  border-top:1px dashed rgba(255,217,122,.3); border-bottom:1px dashed rgba(255,217,122,.3);
+  padding:10px 14px; margin:24px 0; border-radius:10px; font-weight:600; letter-spacing:.5px;
+}
+
+.level{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--border);border-radius:18px;margin-bottom:24px;overflow:hidden;transition:.25s;}
+.level:hover{border-color:rgba(0,212,255,.35);}
+.level-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;user-select:none;gap:12px;}
+.level-head h2{font-size:18px;display:flex;align-items:center;gap:12px;}
+.num{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f1c;font-weight:800;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:15px;flex-shrink:0;}
+.arrow{color:var(--muted);transition:.3s;font-size:14px;}
+.level.open .arrow{transform:rotate(180deg);}
+.level-body{display:none;padding:0 22px 24px;border-top:1px dashed var(--border);}
+.level.open .level-body{display:block;padding-top:20px;}
+
+.section-title{font-size:16px;font-weight:700;color:var(--accent);margin:24px 0 16px;padding-right:10px;border-right:4px solid var(--accent);}
+
+/* كارت السؤال */
+.qa-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  transition: .2s;
+}
+.qa-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+.qa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+  padding-bottom: 10px;
+}
+.qa-question {
+  font-weight: 600;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* زر النسخ */
+.copy-btn {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .2s;
+  font-weight: 600;
+}
+.copy-btn:hover { background: rgba(0, 212, 255, 0.25); }
+.copy-btn.done { background: var(--green); color: #fff; border-color: var(--green); }
+
+/* الكود */
+pre {
+  background: var(--code);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  color: #a5f3fc;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  line-height: 1.6;
+}
+
+.note { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: #86efac; border-radius: 8px; padding: 10px 14px; font-size: 14px; margin-top: 10px; }
+
+footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border); margin-top: 40px; }
+footer b { color: var(--accent); }
+footer .contact { margin-top: 14px; font-size: 15px; color: #fff; }
+footer .contact span { color: var(--accent); direction: ltr; display: inline-block; font-weight: 700; }
+
+.top-btn { position: fixed; bottom: 24px; left: 24px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b0f1c; border: none; width: 48px; height: 48px; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 8px 24px rgba(0, 212, 255, 0.35); display: none; z-index: 99; transition: .3s; }
+.top-btn.show { display: block; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">🚀 تجميعة كاملة – KHALED ASHRAF</div>
+  <h1>حلول منصة كوريو – الصف الأول الثانوي</h1>
+  <p>إجابات جاهزة للنسخ – مادة البرمجة والذكاء الاصطناعي – 12 مستوى كامل</p>
+
+  <div class="owner-card">
+    <div class="avatar">KA</div>
+    <div class="info">
+      <b>KHALED ASHRAF</b>
+      <span>📞 01286473176</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>12</b><span>مستوى منشور</span></div>
+    <div class="stat"><b>42</b><span>إجمالي المستويات</span></div>
+    <div class="stat"><b>100%</b><span>إجابات كاملة</span></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="notice">
+    ⚠️ <b>ملاحظة:</b> الإجابات غير رسمية ومحتمل تتغير صياغتها على المنصة. راجع الحل بنفسك، والأفضل تفهم الكود قبل ما تنسخه.
+  </div>
+
+  <!-- ================= LEVEL 1 ================= -->
+  <div class="level" data-level="1">
+    <div class="level-head"><h2><span class="num">1</span> المستوى الأول</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي محمد ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>أريد أن ألعب به!</pre>
+        <pre>البرمجة تتيح لك إنشاء الألعاب والمواقع والتطبيقات وغيرها. نعلم عليها صح</pre>
+      </div>
+
+      <div class="reminder">✨ سبحان الله وبحمده، سبحان الله العظيم</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">كم عدد لغات البرمجة الموجودة في العالم؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>أكثر من 100 نوع
+نعلم صح علي الثلاث نقاط</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله حيثما كنت</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Hello");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Good morning");</pre>
+        <div class="note">تحقق مما تعلمته: نعلم صح على الثلاث نقاط</div>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ وسلم على نبينا محمد</div>
+      <div class="section-title">الدرس الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">ماذا تُسمى الشاشة السوداء التي تكتب فيها برنامجك؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>المحرر</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Good evening");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Good night");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Good luck");</pre>
+      </div>
+
+      <div class="reminder">🤲 الحمد لله على كل حال</div>
+      <div class="section-title">الدرس الخامس</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>//When executed, the text is output to the console.
+console.log("Hello");</pre>
+      </div>
+
+      <div class="reminder">🌟 لا حول ولا قوة إلا بالله</div>
+      <div class="section-title">الدرس السادس</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>//Greetings for the day.
+console.log("Good morning");
+console.log("Hello");
+console.log("Good evening");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Eggs");
+//console.log("Apple");
+console.log("Milk");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Lion");
+//console.log("Fish");
+console.log("Elephant");
+console.log("Giraffe");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">هل يبدو كل شيء جيدًا حتى الآن؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>نعم ممتاز</pre>
+      </div>
+
+      <div class="reminder">☘️ أستغفر الله العظيم وأتوب إليه</div>
+      <div class="section-title">مراجعة المستوى الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Hello");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Good morning");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Programming");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Hello");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>//Write your comments here.</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Hello.");
+console.log("My name is");
+//console.log("Rick.");
+console.log("Cody.");</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 2 ================= -->
+  <div class="level" data-level="2">
+    <div class="level-head"><h2><span class="num">2</span> المستوى الثاني</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">هل تتذكر البرنامج الذي يطبع الأحرف؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>بالطبع</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Let's calculate.");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("1+1");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(1+1);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(1400+3600);</pre>
+      </div>
+
+      <div class="reminder">✨ سبحان الله والحمد لله</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(432+345);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(100-50);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(5*6);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(10/5);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(10000000000*10000000000);</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله في كل أمرك</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Set of 2 coffees " + (250 * 2) + " codycoins");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>(250 * 2)</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود</pre>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ على محمد</div>
+      <div class="section-title">الدرس الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Set of 3 coffees " + (250 * 3) + " codycoins");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("One muffin " + (320 * 1) + " codycoins");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Two muffins " + (320 * 2) + " codycoins");</pre>
+      </div>
+
+      <div class="reminder">🤲 الحمد لله رب العالمين</div>
+      <div class="section-title">مراجعة المستوى الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(50 + 100);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>/</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(19+40);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(7-2);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(15/5);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Today is the 17th. 7 days ago was the " + (17 - 7) + "th.");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("The answer is " + (2*5) + ".");</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 3 ================= -->
+  <div class="level" data-level="3">
+    <div class="level-head"><h2><span class="num">3</span> المستوى الثالث</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let fish;
+fish = 0;
+fish = fish + 3;
+fish = fish + 7;
+console.log(fish);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let fish;
+fish = 0;
+fish = fish + 3;
+fish = fish + 7;
+console.log("fish");</pre>
+      </div>
+
+      <div class="reminder">✨ سبحان الله وبحمده</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let fish;
+fish = 0;
+fish = fish + 8;
+fish = fish + 12;
+console.log(fish);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let apple;
+apple = 0;
+apple = apple + 5;
+apple = apple + 8;
+console.log(apple);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let allowance;
+allowance = 700;
+allowance = allowance + 1500;
+console.log(allowance);</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله ولا تحمل همًّا</div>
+      <div class="section-title">مراجعة المستوى الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let score;</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(score);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let number</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let number;
+number = 100</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let number;
+number = 10;
+console.log(number)</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let number;
+number = 3;
+number = number +10
+console.log(number)</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 4 ================= -->
+  <div class="level" data-level="4">
+    <div class="level-head"><h2><span class="num">4</span> المستوى الرابع</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول (مراجعة 1–3)</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>//Write the program on the line below.
+console.log("Good evening");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Bread and coffee for " + (200 + 150) + " codycoins");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num;
+num = 2;
+num = num + 8;
+console.log(num);</pre>
+      </div>
+
+      <div class="reminder">✨ لا إله إلا الله وحده لا شريك له</div>
+      <div class="section-title">اختبار المستوى الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول والثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("Hello");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>//Leave this text.
+console.log("Make the first line a comment.");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(5 + 7);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>*</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log("The answer is " + ( 3 * 5) + ".");</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let number;</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثامن</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num
+num = 5
+console.log(num)</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 5 ================= -->
+  <div class="level" data-level="5">
+    <div class="level-head"><h2><span class="num">5</span> المستوى الخامس</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let fish;
+fish = 0;
+console.log(fish);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let fish = 0;
+console.log(fish);</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let apple = 0;
+apple = apple + 10;
+console.log(apple);</pre>
+      </div>
+
+      <div class="reminder">✨ الحمد لله على نعمة الإسلام</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">أي المواد واثق فيها؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>العلوم</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود دون تعديل</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>80</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله واصبر</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>if (science == 100)</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>{console.log("Increased allowance!");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث والرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let science = 100;
+if (science == 100){console.log("Increased allowance!");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let math = 100;
+if (math == 100){console.log("Get a reward");}</pre>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ وسلم على نبينا</div>
+      <div class="section-title">الدرس الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول والثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود دون تعديل</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>true</pre>
+      </div>
+
+      <div class="reminder">🤲 أستغفر الله العظيم</div>
+      <div class="section-title">مراجعة المستوى الخامس</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 5
+console.log(num)</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>if (conditional){processing}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>num == 50</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 100
+if (num == 100){console.log("Correct")};</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>false</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 6 ================= -->
+  <div class="level" data-level="6">
+    <div class="level-head"><h2><span class="num">6</span> المستوى السادس</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">هل أنت واثق؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>أنا واثق</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let science = 100;
+if (science == 100){console.log("Increased allowance!");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let science = 80;
+if (science == 100){console.log("Increased allowance!");}
+else {console.log("Weeding the garden");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let math = 80;
+if (math == 100){console.log("Get reward");}
+else {console.log("No reward");}</pre>
+      </div>
+
+      <div class="reminder">✨ سبحان الله وبحمده عدد خلقه</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let egg = 10;
+if (egg == 0){console.log("Let's go buy some.");}
+else {console.log("I still have some.");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 777;
+if (num == 777){console.log("lucky");}
+else {console.log("better luck next time");}</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله في السر والعلن</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود دون تعديل</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let math = 30;
+if (math <= 50){console.log("Add homework");}
+else {console.log("No homework!");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let word = 60;
+if (word >= 70){console.log("pass");}
+else {console.log("fail");}</pre>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ على محمد وعلى آله</div>
+      <div class="section-title">الدرس الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let height = 91;
+if (height > 130){console.log("Can ride");}
+else {console.log("Cannot ride");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let height = 91;
+if (height < 80){console.log("Cannot ride");}
+else {console.log("Can ride");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let age = 15;
+if (age <= 16){console.log("No entry");}
+else {console.log("Entry allowed");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let age = 15;
+if (age >= 60){console.log("Cannot jump");}
+else {console.log("Can jump");}</pre>
+      </div>
+
+      <div class="reminder">🤲 الحمد لله الذي بنعمته تتم الصالحات</div>
+      <div class="section-title">مراجعة المستوى السادس</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>if (conditional){A}
+else{B}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 5
+if(num == 10){console.log("Win")}
+else {console.log("Lose")}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>num <= 80</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>num > 30</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let score = 80;
+if (score >= 60){console.log("Pass");}
+else {console.log("Fail");}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 7 ================= -->
+  <div class="level" data-level="7">
+    <div class="level-head"><h2><span class="num">7</span> المستوى السابع</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 2;
+if (num == 1){console.log("New bicycle");}
+else if (num == 2){console.log("Pair of tickets to the aquarium");}</pre>
+      </div>
+
+      <div class="reminder">✨ لا حول ولا قوة إلا بالله</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 3;
+if (num == 1){console.log("New bicycle");}
+else if (num == 2){console.log("Pair of tickets to the aquarium");}
+else if (num == 3){console.log("10 bags of potato chips");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 4;
+if (num == 1){console.log("New bicycle");}
+else if (num == 2){console.log("Pair of tickets to the aquarium");}
+else if (num == 3){console.log("10 bags of potato chips");}
+else if (num == 4){console.log("Illustrated book of sea creatures");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 10;
+if (num == 1){console.log("New bicycle");}
+else if (num == 2){console.log("Pair of tickets to the aquarium");}
+else if (num == 3){console.log("10 bags of potato chips");}
+else if (num == 4){console.log("Illustrated book of sea creatures");}
+else{console.log("Stickers");}</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله وكن من الصابرين</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let people = 3;
+if (people == 2){console.log("10% off");}
+else if (people >= 3){console.log("20% off");}
+else {console.log("retail price");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let egg = 2;
+if (egg == 0){console.log("I have to go buy more eggs");}
+else if (egg <= 3){console.log("I'm almost out of eggs");}
+else {console.log("I still have eggs");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>تم عرض "Less than or equal to 10".</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود دون تعديل</pre>
+      </div>
+
+      <div class="reminder">🌙 صلّ على الحبيب محمد ﷺ</div>
+      <div class="section-title">مراجعة المستوى السابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>if (conditional){A}
+else if (conditional){B}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 2;
+if (num == 1){console.log("One");}
+else if (num == 2){console.log("Two")};</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let score = 82;
+if (score == 100){console.log("Perfect score");}
+else if (score >= 80){console.log("Pass")}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>Pass</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let egg = 5;
+if (egg == 0){console.log("No stock");}
+else if (egg <= 3){console.log("Low stock");}
+else{console.log("In stock");}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 8 ================= -->
+  <div class="level" data-level="8">
+    <div class="level-head"><h2><span class="num">8</span> المستوى الثامن</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول (مراجعة 5–7)</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let science = 100;
+if (science == 100){console.log("The reward is a cake");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>false</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let science = 80;
+if (science == 100){console.log("The reward is a cake");}
+else {console.log("No reward");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let test = 30;
+if (test <= 50){console.log("Homework");}
+else {console.log("No homework");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let test = 77;
+if (test == 100){console.log("Perfect score");}
+else if (test >= 75){console.log("Pass");}
+else{console.log("Make-up exam");}</pre>
+      </div>
+
+      <div class="reminder">✨ سبحان الله العظيم</div>
+      <div class="section-title">مراجعة المستوى الثامن</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 7
+if (num == 7){console.log("Correct")}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>true</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let score = 70;
+if(score >= 60){console.log("Pass");}
+else{console.log("Fail");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>num < 20</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 100
+if (num == 100){console.log("correct")}
+else {console.log("miss")}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>So close</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let num = 4;
+if (num <= 3){console.log("A");}
+else if (num >= 6){console.log("B");}
+else {console.log("C");}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 9 ================= -->
+  <div class="level" data-level="9">
+    <div class="level-head"><h2><span class="num">9</span> المستوى التاسع</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول والثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let numberOfPeople = 3;
+let fee = 3500;
+if (numberOfPeople >= 2 && fee >= 3000){console.log("20% off");}</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله وحافظ على الصلاة</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>ampersand</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>Vertical bar</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>let numberOfPeople = 2;
+let fee = 3500;
+if (numberOfPeople >= 2 && fee >= 3000){console.log("Free mug");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let age = 15;
+if (age <= 12 || age >= 65){console.log("30% off");}</pre>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ وسلم على نبينا</div>
+      <div class="section-title">مراجعة المستوى التاسع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>A && B</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>A || B</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>السعر العادي</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let a = 5;
+let b = 10;
+if (a == 5 || b == 10){console.log("Condition met");}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>let a = 4;
+let b = 3;
+if (a >= 2 && b >= 3){console.log("Condition met");}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 10 ================= -->
+  <div class="level" data-level="10">
+    <div class="level-head"><h2><span class="num">10</span> المستوى العاشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول والثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let numberOfPeople = 2;
+let fee = 3500;
+if (numberOfPeople >= 2 && fee >= 3000) {
+console.log("Free mug");
+} else if (numberOfPeople >= 2 || fee >= 3000) {
+console.log("Complimentary cookie");
+}</pre>
+      </div>
+
+      <div class="reminder">✨ الحمد لله على كل نعمة</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">ماذا تشرب البقرة؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>ماء</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله في عملك</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>for ( let count = 0; count < 10; count = count + 1 )
+{
+console.log("silk");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let count = 0; count < 10; count = count + 1) {
+console.log("deer");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let count = 0; count < 10; count = count + 1) {
+console.log("campus");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>Protractor</pre>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ على محمد ﷺ</div>
+      <div class="section-title">الدرس الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let count = 0; count < 10; count = count + 1) {
+console.log("campus");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let count = 0; count < 10; count++) {
+console.log("campus");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 10; i++) { console.log("genius"); }</pre>
+      </div>
+
+      <div class="reminder">🤲 أستغفر الله وأتوب إليه</div>
+      <div class="section-title">الدرس الخامس</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 3; i++) { console.log("Red lorry, yellow lorry"); }</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 1; i < 3; i++) { console.log("Red lorry, yellow lorry"); }</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 100; i++) {
+console.log("Red lorry, yellow lorry");
+}</pre>
+      </div>
+
+      <div class="reminder">🌟 لا إله إلا الله</div>
+      <div class="section-title">مراجعة المستوى العاشر</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>for</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>i++</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i=0; i<10; i++) {
+Specified process
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 5; i++ ) {
+console.log("Hello");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 7; i++ ) {
+console.log("Hello");
+}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 11 ================= -->
+  <div class="level" data-level="11">
+    <div class="level-head"><h2><span class="num">11</span> المستوى الحادي عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">مراجعة من 9 إلى 10</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>let age = 15;
+let numberOfPeople = 7;
+if (age <= 18 && numberOfPeople >= 5) {
+console.log("Student group discount");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>let age = 15;
+if (age <= 15 || age >= 70) {
+console.log("Discounts available");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 10; i++) {
+console.log("Good morning");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 5; i++) {
+console.log("Go for it");
+}</pre>
+      </div>
+
+      <div class="reminder">✨ سبحان الله وبحمده</div>
+      <div class="section-title">مراجعة واختبار المستوى 11</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>A || B</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>A</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>i++</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i=0; i<10; i++) {
+Process
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>Hello
+Hello</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 10; i++) {
+console.log("Good morning");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>let a = 4;
+let b = 3;
+if (a >= 2 && b >= 3) {
+console.log("Condition met");
+}</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثامن</span><button class="copy-btn">نسخ</button></div>
+        <pre>for (let i = 0; i < 3 ; i++) {
+console.log("Hello");
+}</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL 12 ================= -->
+  <div class="level" data-level="12">
+    <div class="level-head"><h2><span class="num">12</span> المستوى الثاني عشر</h2><span class="arrow">▼</span></div>
+    <div class="level-body">
+      <div class="reminder">🌿 صلّ على النبي ﷺ</div>
+      <div class="section-title">الدرس الأول</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(Math.round(9.8));
+console.log(Math.round(10.3));
+console.log(Math.round(9.2));</pre>
+      </div>
+
+      <div class="reminder">💎 اتقِ الله ولا تنسَ ذكرَه</div>
+      <div class="section-title">الدرس الثاني</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(Math.round(10.6));</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(Math.round(9.7));</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(Math.max(5,10,50));</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>console.log(Math.min(5,10,50));</pre>
+      </div>
+
+      <div class="reminder">🌙 اللهم صلّ على محمد</div>
+      <div class="section-title">الدرس الثالث</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>تشغيل الكود دون تعديل</pre>
+      </div>
+
+      <div class="reminder">🤲 الحمد لله رب العالمين</div>
+      <div class="section-title">الدرس الرابع</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">أي نوع من البيتزا تريد؟</span><button class="copy-btn">نسخ</button></div>
+        <pre>بيتزا المأكولات البحرية</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول إلى الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>function split3(total) {
+  let result = total / 3;
+  return result;
+}
+console.log(split3(2800));</pre>
+      </div>
+
+      <div class="reminder">✨ لا حول ولا قوة إلا بالله</div>
+      <div class="section-title">الدرس الخامس</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول إلى الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>function split5(total) {
+  let result = total / 5;
+  return result;
+}
+console.log(split5(12500));</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس إلى الثامن</span><button class="copy-btn">نسخ</button></div>
+        <pre>function calc5(num) {
+  let result = num * 5;
+  return result;
+}
+console.log(calc5(10));</pre>
+      </div>
+
+      <div class="reminder">🌟 صلّ على النبي ﷺ 🌟</div>
+      <div class="section-title">مراجعة المستوى 12</div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الأول</span><button class="copy-btn">نسخ</button></div>
+        <pre>function calc(num) { processing }</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثاني</span><button class="copy-btn">نسخ</button></div>
+        <pre>Math.round(1.8)</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الثالث</span><button class="copy-btn">نسخ</button></div>
+        <pre>60</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الرابع</span><button class="copy-btn">نسخ</button></div>
+        <pre>15</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال الخامس</span><button class="copy-btn">نسخ</button></div>
+        <pre>function calc(num) {
+  let result = num * 5;
+  return result;
+}
+console.log(calc(3));</pre>
+      </div>
+      <div class="qa-item">
+        <div class="qa-header"><span class="qa-question">السؤال السادس</span><button class="copy-btn">نسخ</button></div>
+        <pre>function calc(num) {
+  let result = num * 7;
+  return result;
+}
+console.log(calc(10));</pre>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>💙 <b>حلول منصة كوريو</b> – الصف الأول الثانوي | مادة البرمجة والذكاء الاصطناعي</p>
+  <p style="margin-top:8px">تجميع وترتيب: <b>KHALED ASHRAF</b> | جميع الحقوق محفوظة © 2026</p>
+  <div class="contact">📞 للتواصل: <span>01286473176</span></div>
+  <p style="margin-top:14px;font-size:13px;color:var(--gold)">🌿 صلّ على النبي محمد ﷺ</p>
+  <p style="margin-top:8px;font-size:12px;opacity:.7">هذا المحتوى غير رسمي – راجع إجاباتك دائمًا قبل الاعتماد عليها.</p>
+</footer>
+
+<button class="top-btn" id="topBtn">↑</button>
+
+<script>
+// فتح وقفل المستويات
+document.querySelectorAll('.level-head').forEach(h=>{
+  h.addEventListener('click',()=>{h.parentElement.classList.toggle('open');});
+});
+
+// كود زر النسخ الجديد
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // عشان ميقلبش المستوى لوحده
+    // بيجيب الكود اللي في نفس الكارت
+    const codeText = btn.closest('.qa-item').querySelector('pre').innerText;
+    
+    navigator.clipboard.writeText(codeText).then(() => {
+      btn.textContent = '✓ تم النسخ';
+      btn.classList.add('done');
+      setTimeout(() => {
+        btn.textContent = 'نسخ';
+        btn.classList.remove('done');
+      }, 1500);
+    });
+  });
+});
+
+// زر الرجوع لفوق
+const topBtn = document.getElementById('topBtn');
+window.addEventListener('scroll', () => {
+  topBtn.classList.toggle('show', window.scrollY > 400);
+});
+topBtn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+
+// فتح المستوى الأول تلقائياً
+document.querySelector('.level[data-level="1"]').classList.add('open');
+</script>
+
+</body>
+</html>
